@@ -1,5 +1,5 @@
 baseurl = "combinatorial.space/" # Make sure to end baseurl with a '/'
-title = "COMBINATORIAL"
+title = "combinatorial.space"
 languageCode = "en-us"
 author = "Victor Seixas Souza"
 # Shown in the side menu
