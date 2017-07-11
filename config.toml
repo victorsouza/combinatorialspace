@@ -1,0 +1,112 @@
+baseurl = "localhost:1313/" # Make sure to end baseurl with a '/'
+title = "COMBINATORIAL"
+languageCode = "en-us"
+author = "Victor Seixas Souza"
+# Shown in the side menu
+copyright = "&copy; 2017. All rights reserved."
+canonifyurls = true
+paginate = 10
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  # Shown in the home page
+  subtitle = "SPACE"
+  brand = "combinatorial<br>.space"
+  googleAnalytics = "Your Google Analytics tracking ID"
+  disqus = "Your Disqus shortname"
+  # CSS name for highlight.js
+  highlightjs = "hybrid"
+  dateFormat = "02 Jan 2006" #, 15:04"
+  # Include any custom CSS and/or JS files
+  # (relative to /static folder)
+  #custom_css = ["css/my.css"]
+  #custom_js = ["js/my.js"]
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 0
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 1
+    identifier = "post"
+    url = "/post/"
+  [[menu.main]]
+    name = "Notes"
+    pre = "<i class='fa fa-file-text-o fa-fw'></i>"
+    weight = 2
+    identifier = "notes"
+    url = "/notes/"
+  [[menu.main]]
+    name = "Files"
+    pre = "<i class='fa fa-archive fa-fw'></i>"
+    weight = 3
+    identifier = "files"
+    url = "/files/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 4
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 5
+    url = "/contact/"
+
+[social]
+  # Link your social networking accounts to the side menu
+  # by entering your username or ID.
+
+  # SNS microblogging
+  #twitter = "*"
+  #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
+  facebook = "*"
+  googleplus = "*"
+  #weibo = "*"
+  #tumblr = "*"
+
+  # SNS photo/video sharing
+  #instagram = "*"
+  #flickr = "*"
+  #3photo500px = "*"
+  #pinterest = "*"
+  #youtube = "*"
+  #vimeo = "*"
+  #vine = "*"
+  #slideshare = "*"
+
+  # SNS career oriented
+  #linkedin = "*"
+  #xing = "*"
+
+  # SNS news
+  #reddit = "*"
+  #hackernews = "*"
+
+  # Techie
+  github = "yoshiharuyamashita"
+  #gitlab = "*"
+  #bitbucket = "*"
+  #stackoverflow = "*"
+  #serverfault = "*"
+
+  # Gaming
+  #steam = "*"
+  #mobygames = "*"
+
+  # Music
+  #lastfm = "*"
+  #discogs = "*"
+
+  # Other
+  #keybase = "*"
