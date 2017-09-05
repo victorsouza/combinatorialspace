@@ -1,5 +1,5 @@
 +++
-date = "2017-08-01"
+date = "2017-09-05"
 title = "The Birkhoff Polytope"
 description = "An application of Hall's Theorem"
 tags = [
@@ -17,15 +17,15 @@ A real matrix `$A = (a_{ij})$` is called __doubly stochastic__ if it's entries a
 
 Define then `$B_n \subset \mathbb{R}^{n^2}$` as the natural embedding of the set of all doubly stochastic matrices into `$\mathbb{R}^{n^2}$`. It is easy to see that this set is convex. Indeed, any convex combination of matrices in `$B_n$` remains positive and have the stochastic property.
 
-The set `$B_n$` is not empty, indeed, the identity matrix is doubly stochastic. Additionally, any permutation matrix `$P_\sigma = (\delta_{i,\sigma(j)})$` is doubly stochastic. Here, `$\delta_{x,y}$` is the indicator for `$x=y$`, so a permutation matrix have exactly one entry 1 on every column and every row, all other entries are 0. We have `$n!$` such matrices. It is easy to see that these matrices are the only doubly stochastic matrices with integer coordinates.
+The set `$B_n$` is not empty, as the identity matrix is doubly stochastic. Additionally, any permutation matrix `$P_\sigma = (\delta_{i,\sigma(j)})$` is doubly stochastic. Here, `$\delta_{x,y}$` is the indicator for `$x=y$`, so a permutation matrix have exactly one entry 1 on every column and every row, all other entries are 0. We have `$n!$` such matrices. It is easy to see that these matrices are the only doubly stochastic matrices with integer coordinates.
 Indeed, these are the points where `$B_n$` intersects the integer lattice `$\mathbb{Z}^{n^2}$`.
 
 Our goal is to show this characterization of `$B_n$`:
 
 > __Theorem (Birkhoff–von Neumann)__
-> The set `$B_n$` forms a convex polyhedron where the vertices are the permutation matrices.
+> The set `$B_n$` forms a convex polytope where the vertices are the permutation matrices.
 
-In particular, this show that a doubly stochastic matrix can be written as a convex combination of permutation matrices. Our proof to this theorem will use perfect matchings in bipartite graphs, so we need a little detour into graph theory.
+In particular, this show that a doubly stochastic matrix can be written as a convex combination of permutation matrices. Our proof to this theorem will use perfect matchings in bipartite graphs, so we need a little detour into graph theory. This next section can be skipped if the reader is familiar with the common notation in graph theory.
 
 # Bipartite Graphs
 
@@ -43,10 +43,12 @@ The condition is clearly necessary. Indeed, for every subset `$S\subset A$`, its
 
 For bigger `$n$`, suppose we have a proper subset `$S \subset A$` that is saturated, meaning that `$|N(S)| = |S|$`. Then we can only match vertices in `$N(S)$` with vertices in `$S$`. As `$S$` is a proper subset, one can find a perfect matching for `$S$` and `$N(S)$` by induction.
 
-We now have to show that we can match `$A \setminus S$` with `$B \setminus N(S)$`. Note that they have the same cardinality, which is less than `$n$`. Therefore it is sufficient to show that we have Hall's condition inside this pair and apply the induction hypothesis. Let `$A' = A \setminus S$`, `$B' = B \setminus N(S)$` and `$H \subset A'$`. Suppose that `$|N(H) \cap B'| < |H|$`. Thus `$|N(H \cup S)| = |N(S) \cup (N(H)\cap B')| < |S| + |H|$`, absurd. Thus, `$|N(H) \cap B'| \geq |H|$`, so we can apply induction.
+We now have to show that we can match `$A \setminus S$` with `$B \setminus N(S)$`. Note that they have the same cardinality, which is less than `$n$`. Therefore it is sufficient to show that we have Hall's condition inside this pair and apply the induction hypothesis. Let `$A' = A \setminus S$`, `$B' = B \setminus N(S)$` and `$H \subset A'$`. Suppose that `$|N(H) \cap B'| < |H|$`. Thus,
+<div> $$ |N(H \cup S)| = |N(S) \cup (N(H)\cap B')| < |S| + |H|,$$ </div>
+absurd. Thus, `$|N(H) \cap B'| \geq |H|$`, so we can apply induction.
 
 The only case left is when all proper subsets `$S \subset A$` have `$|N(S)| \geq |S| + 1$`. This case is easier as we can pick any edge `$\{ x,y \}$` to be in our perfect matching and still have Hall's condition on the remaining graph, obtained by removing both vertices. This is easy to see as for any set `$S \subset A \ \{x\}$`, its neighbourhood can be decreased by at most one.
-`$\blacksquare$`
+<span class="qed">■</span>
 
 # Completing the Proof
 
@@ -55,6 +57,28 @@ We are now ready to prove the Birkhoff-von Neumann theorem. Given a `$n \times n
 We will show that such bipartite graph `$G_A$` has a perfect matching by the means of the Hall's theorem. Let `$S \subset X$` be any subset of vertices. They correspond to a subset of rows of the matrix `$A$`. The set `$N(S)$` is the set of columns that intersects the rows `$S$` on a positive entry. Alternatively, the columns `$N(S)$` covers all the nonzero entries of `$S$`.
 By summing the entries on the columns `$N(S)$`, we get:
 
-<div> $$ |N(S)| = \sum_{j \in N(S)}\sum_{i \in Y}a_{ij}  = \sum_{i \in Y}\sum_{j \in N(S)}a_{ij}  \geq \sum_{i \in S}\sum_{j \in N(S)}a_{ij} = |S| $$ </div>
+<div> $$ |N(S)| = \sum_{j \in N(S)}\sum_{i \in Y}a_{ij}  = \sum_{i \in Y}\sum_{j \in N(S)}a_{ij}  \geq \sum_{i \in S}\sum_{j \in N(S)}a_{ij} = |S|. $$ </div>
 
 In words, the columns `$N(S)$` holds all the weight of the rows `$S$`, as each column or row carries the same weight, there must be at least the same number of columns as rows.
+
+Applying Hall's Theorem, we have a perfect matching in `$G_A$`. Notice that a perfect matching in this bipartite graph correspond to a permutation matrix, as for each column, we choose just one row and vice versa. Therefore, there is a permutation `$\sigma$` such that `$A$` is positive in the entries `$(i,\sigma(i))$`. Let `$m$` be the minimum over these entries. With this, consider the matrix:
+$$ A' = \frac{1}{1-m}(A - m P_\sigma). $$
+
+Note that all the columns and rows of `$A'$` adds to one as well. Also, by the choice of `$m$`, no negative entry is created. Furthermore, `$A'$` has at least one nonzero entry less. Therefore, we can use induction in the number of nonzero entries of `$A$`. By the indction hypothesis, the matrix `$A'$` is a convex combination of permutation matrices, therefore:
+
+<div> $$ A' = \sum_{i=1}^N \alpha_i P_{\sigma_i}  = \frac{1}{1-m} (A - m P_\sigma),$$ </div>
+
+with `$\sum_{i=1}^N \alpha_i = 1$`, `$\alpha_i \geq 0$`. Therefore,
+
+<div> $$ A = (1-m)\left( \sum_{i=1}^N \alpha_i P_{\sigma_i} \right) + m P_{\sigma}$$ </div>
+
+is a convex combination of permutation matrices.
+
+To finish the proof, we have to the base case for the induction, namely, when there are only `$n$` positive entries. But it is clear that in this case, each row and each column should have exactly one positive entry, so the only possibility is a permutation matrix.
+
+So we have that every element in `$B_n$` is the convex hull of the finite set of permutation matrices, so it forms a polytope. We can check that all the `$n!$` permutation matrices are indeed vertices of this polytope. Indeed, suppose that a permutation matrix is written as a convex combination of more than one distinct permutation matrices. Then, there is at least one entry of their matrices where they differ. This entry is strictly less than one on the convex combination, which is impossible in a permutation matrix.
+<span class="qed">■</span>
+
+# Conclusion
+
+We have shown that the set of doubly stochastic matrices naturally embed into a polytope called the Birkhoff polytope. For that, we've used a result about matching in bipartite graphs. More facts about polytopes will be present in future posts.

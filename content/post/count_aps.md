@@ -1,6 +1,7 @@
 +++
 date = "2017-08-02"
 title = "Counting Arithmetic Progressions"
+draft = true
 +++
 
 Let's count the number of $k$-term arithmetic progressions contained inside the
@@ -44,4 +45,4 @@ Let `$\mathcal{A}_k(N)$` be the set of all `$k$`-term arithmetic progressions in
 
 Lets carry out the expected common difference:
 
-<div> $$ \frac{1}{2(k-1)}N^2 - \left (1+\frac{1}{2(k-1)} \right)N \leq A_k(N) \leq \frac{1}{2(k-1)}N^2 - \frac{1}{2(k-1)}N $$ </div>
+<div> $$  \sum_{a = 0}^{N-1} $$ </div>
