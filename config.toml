@@ -1,5 +1,5 @@
 baseurl = "/" # Make sure to end baseurl with a '/'
-title = "combinatorial. space"
+title = "combinatorial.space"
 languageCode = "en-us"
 author = "Victor Seixas Souza"
 # Shown in the side menu
@@ -16,7 +16,7 @@ paginate = 10
   subtitle = "a place for mathematics, discrete and otherwise"
   brand = "combinatorial<br>.space"
   #googleAnalytics = "Your Google Analytics tracking ID"
-  #disqus = "Your Disqus shortname"
+  disqus = "combinatorial-space"
   # CSS name for highlight.js
   highlightjs = "hybrid"
   dateFormat = "02 Jan 2006" #, 15:04"
