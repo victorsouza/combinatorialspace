@@ -12,7 +12,7 @@ Ramsey theory is a vibrant branch of combinatorics that explores the unavoidabil
 
 Before we dive into the theory, let's make some standard notation clear. For `$n \in \mathbb{N}$`, define `$[n] = \{1,\dotsc,n\}$`. For any set `$A$` and `$k \in \mathbb{N}$`, define `${ A \choose k} = \{ S \subseteq A : |S| = k \}$`. Note that `$|{A \choose k}| = {|A| \choose k}$`. Sometimes we use `${A \choose \leq k} = \{ S \subseteq A : |S| \leq k\}$` and similar variants. The power set of `$A$` is denoted by `$\mathcal{P}(A) = \{ S : S \subset A\}$`.
 
-In Ramsey theory, it is common to call partitions colourings. Let `$A$` be a set, we say that a colouring of `$A$` in `$r$` colours is any function `$c : A \to [r]$`. This induces a partition of `$A$` into the colour classes `$c^{-1}(1), \dotsc , c^{-1}(r)$`. It is common to have other finite sets as colours, for instance, a red-blue colouring of `$A$` is a colouring `$c : A \to \{R,B\}$`, and we can denote the colour classes by `$A_R = c^{-1}(R)$`, `$A_B = c^{-1}(B)$`
+In Ramsey theory, it is common to call partitions colourings. Let `$A$` be a set, we say that a colouring of `$A$` in `$r$` colours is any function `$c : A \to [r]$`. This induces a partition of `$A$` into the colour classes `$c^{-1}(1), \dotsc , c^{-1}(r)$`. It is common to have other finite sets as colours, for instance, a red-blue colouring of `$A$` is a colouring `$c : A \to \{R,B\}$`, and we can denote the colour classes by `$A_R = c^{-1}(R)$`, `$A_B = c^{-1}(B)$`.
 
 # Graphs and Colourings
 
@@ -22,15 +22,15 @@ In a graph `$G$`, when an edge `$e = \{u,v\}\in E(G)$` for vertices `$u,v \in V(
 
 On Figure 1, we see the drawing of a graph. Each round dot represents a vertex, so we have 8 vertices. The edges are represented by curves with endpoints on it's vertices, so we have 10 edges. On this graph, we have one vertex of degree 1, four vertices of degree 2, two vertices of degree 3 and one vertex of degree 4.
 
-{{< figure src="/img/graph_01.png" width="40%" alt="(Drawing of a simple graph)" caption="(Figure 1) Drawing of a simple graph.">}}
+{{< figure src="/img/graph_01.png" width="280px" alt="(Drawing of a simple graph)" caption="(Figure 1) Drawing of a simple graph.">}}
 
 The useful information of a graph are the set of edges, they define structure between vertices. If we relabel all the vertices of a graph, and relabel the edges correspondingly, no information is lost. To capture this idea, we say that to graphs `$G$` and `$H$` are __isomorphic__ if there is a bijection `$\phi : V(G) \to V(H)$` such that `$\{\phi(u),\phi(v)\} \in E(H)$` if and only if `$\{u,v\} \in E(G)$`. Such function `$\phi$` is called an __isomorphism__ of graphs.
 
 One important class of graphs are the __complete graphs__ `$K_n$`. The complete graph on a set of vertices `$V$` is the graph with all possible edges, that is, `$E = {V \choose 2}$`. Up to isomorphism, one can consider the complete graphs with `$n$` vertices to be the graph `$K_n = ([n], {[n] \choose  2})$`. On Figure 2, we have a graph isomorphic to `$K_5$`.
 
-A __subgraph__ of a graph `$G$` is another graph `$H$` with `$V(H) \subseteq V(G)$` and `$E(H) \subseteq E(G)$`. We say that a graph `$G$` __has a copy of__ a graph `$H$` when `$G$` has a subgraph that is isomorphic to `$H$`. For instance, the graph `$K_5$` has a copy of `$K_3$`, indeed, it has `${5 \choose 3} = 10$` copies.
+A __subgraph__ of a graph `$G$` is another graph `$H$` with `$V(H) \subseteq V(G)$` and `$E(H) \subseteq E(G)$`. We say that a graph `$G$` __has a copy of__ a graph `$H$` when `$G$` has a subgraph that is isomorphic to `$H$`. For instance, the graph `$K_5$` has a copy of `$K_3$`, indeed, it has `${5 \choose 3} = 10$` copies. When we say that a graph `$G$` has a graph `$H$`, we mean that `$G$` has a copy of `$H$`.
 
-{{< figure src="/img/graph_02.png" width="30%" alt="(Drawing of a simple graph)" caption="(Figure 2) An edge colouring of $K_5$.">}}
+{{< figure src="/img/graph_02.png" width="200px" alt="(Drawing of a simple graph)" caption="(Figure 2) An edge colouring of $K_5$.">}}
 
 An __edge colouring__  of `$G$` is a colouring `$c: E(G) \to [r]$`. Each colour class corresponds to a subgraph of `$G$`, namely `$G_i = (V(G), c^{-1}(i))$`, also called colour classes. We say that a colouring of `$G$` has a __monocromatic copy__ of `$H$` if one of the colour classes has a copy of `$H$`. The colouring given in Figure 2 does not have a monochromatic copy of a `$K_3$`, but has two monochromatic copies of the cycle on 5 vertices.
 
@@ -45,7 +45,8 @@ The first result we will prove it's called Ramsey's theorem for graphs, even tho
 
 If for a given `$t$` and `$r$`, `$N$` has the property of the conclusion of the theorem above, then `$N+1$` also have the same property. It is natural then to ask what is the smallest `$N$` with this property. So we the define the Ramsey number `$R_r(t)$` with `$r$` colours as:
 
-<div> $$ R_r(t) = \min \{ N : \text{any } c:E(K_N) \to [r] \text{ has a monochromatic copy of } K_t\}. $$</div>
+<div> $$ R_r(t) = \min \{ N : \text{any } c:E(K_N) \to [r] \text{ has a monochromatic } K_t\}. $$</div>
+
 
 So Ramsey's theorem can be stated as `$R_r(t) < \infty$`, for all `$r$` and `$t$`.
 
@@ -54,7 +55,7 @@ Let `$G = K_N$` be a complete graph and we are given an arbitrary edge-colouring
 
 Just for the sake of clarity, we will unroll the argument again. Let `$v_2 \in G_2$` be any vertex. Consider the coloured neighbourhoods `$N_1(v_2), \dotsc, N_r(v_2)$` in `$G_2$` and if `$N > rN_3$`, we pick a colour `$a_2$` where `$|N_{a_2}(v_2)| \geq N_3$`, and set `$G_3$` be the graph restricted to the vertices of `$N_{a_2}(v_2)$` and restrict the colouring to obtain `$c_3$`.
 
-{{< figure src="/img/graph_03.png" width="60%" alt="(Drawing of a simple graph)" caption="(Figure 3) Process repeated after $K$ steps.">}}
+{{< figure src="/img/graph_03.png" width="400px" alt="(Drawing of a simple graph)" caption="(Figure 3) Process repeated after $K$ steps.">}}
 
 After repeating this argument `$K$` times, we obtain a sequence of vertices `$v_1, \dotsc, v_K$`, and colours `$a_1, \dotsc, a_K$` with the property that if `$i < j$` then `$c({v_i, v_j}) = a_i$`, that is, the colour of an edge is determined by the vertex with smaller index, as can be seen from Figure 3. For that to apply, we assumed that `$N \geq Kr^K$`.
 
