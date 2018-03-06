@@ -8,7 +8,7 @@ tags = [
 ]
 +++
 
-Ramsey theory is a vibrant branch of combinatorics that explores the unavoidability of ordered structures inside large enough combinatorial structures. This is a very vague description, so the purpose of this note is to make this claim precise in the language of graphs. As Ramsey theory and it's applications are one of my favourite themes in mathematics, this series of notes have also the purpose of being a reference in future notes to common notation, definitions and theorems. No previous knowledge of graph is assumed.
+Ramsey theory is a vibrant branch of combinatorics that explores the unavoidability of ordered structures inside large enough combinatorial structures. This is a very vague description, so the purpose of this note is to make this claim precise in the language of graphs. As Ramsey theory and it's applications are one of my favourite themes in mathematics, this series of notes have also the purpose of being a reference in future notes to common notation, definitions and theorems. In fact, I even wrote my [undergraduate thesis](#references) in Ramsey theory! No previous knowledge of graph will be assumed.
 
 Before we dive into the theory, let's make some standard notation clear. For `$n \in \mathbb{N}$`, define `$[n] = \{1,\dotsc,n\}$`. For any set `$A$` and `$k \in \mathbb{N}$`, define `${ A \choose k} = \{ S \subseteq A : |S| = k \}$`. Note that `$|{A \choose k}| = {|A| \choose k}$`. Sometimes we use `${A \choose \leq k} = \{ S \subseteq A : |S| \leq k\}$` and similar variants. The power set of `$A$` is denoted by `$\mathcal{P}(A) = \{ S : S \subset A\}$`.
 
@@ -68,3 +68,7 @@ __Remark 2:__ We just showed an upper bound for the numbers `$R_r(t)$`, so the n
 __Remark 3:__ We did prove a generic statement that holds for any `$r$` and `$t$`. If one of `$r =1$` or `$t \leq 2$`, the definition of `$R_r(t)$` trivializes. The only other pairs of numbers that are known exactly are `$R_2(3) = 6$`, `$R_2(4) = 18$` and `$R_3(3) = 17$`.
 
 This theorem exemplifies the philosophy behind Ramsey theory. No matter how disordered a colouring can be, one can find a small portion of the colouring that is highly organized. On the next note in this series, we will explore an application of this result in number theory.
+
+# References
+<a name="references"></a>
+[1] Souza, Campos - [Introdução à Teoria de Ramsey em Grafos](http://www.ic.unicamp.br/~reltech/PFG/2016/PFG-16-22.pdf) (Portuguese) [Introduction to Ramsey Theory on Graphs]. 2016, Undergraduate Thesis, Insitute of Computing, University of Campinas, 2016.
