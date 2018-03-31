@@ -38,30 +38,30 @@ The goal of this note is to prove a measure theoretical version of this identity
 
 # Inclusion-Exclusion via Integration
 
-Let `$(\Omega, \mathcal{A}, \mu)$` be a measure space and `$A_1, \dots, A_n \in \mathcal{A}$` be measurable sets with finite `$\mu$`-measure. Denote `$A = \bigcup_{i \in [n]} A_i$`. As `$A$` is measurable, it's indicator function `$\unicode{x1D7D9}_A$` is a measurable function. Define the function `$F$` as
+Let `$(\Omega, \mathcal{A}, \mu)$` be a measure space and `$A_1, \dots, A_n \in \mathcal{A}$` be measurable sets with finite `$\mu$`-measure. Denote `$A = \bigcup_{i \in [n]} A_i$`. As `$A$` is measurable, it's indicator function `$\mathbf{1}_A$` is a measurable function. Define the function `$F$` as
 
 <div> $$
-F(\omega) = \prod_{i \in [n]} (\unicode{x1D7D9}_A(\omega) - \unicode{x1D7D9}_{A_i}(\omega)).
+F(\omega) = \prod_{i \in [n]} (\mathbf{1}_A(\omega) - \mathbf{1}_{A_i}(\omega)).
 $$ </div>
 
-Note that if `$\omega \not\in A$`, then `$\unicode{x1D7D9}_A(\omega) = 0$` and `$\unicode{x1D7D9}_{A_i}(\omega) = 0$` for `$i \in [n]$`, so `$F(\omega) = 0$`.
-On the other hand, if `$\omega \in A$`, then there is `$i$` so that `$\omega \in A_i$`, so `$\unicode{x1D7D9}_A(\omega) - \unicode{x1D7D9}_{A_i}(\omega) = 0$`, this also implies that `$F(\omega) = 0$`, that is, `$F$` is identically 0. Expanding the product, we have:
+Note that if `$\omega \not\in A$`, then `$\mathbf{1}_A(\omega) = 0$` and `$\mathbf{1}_{A_i}(\omega) = 0$` for `$i \in [n]$`, so `$F(\omega) = 0$`.
+On the other hand, if `$\omega \in A$`, then there is `$i$` so that `$\omega \in A_i$`, so `$\mathbf{1}_A(\omega) - \mathbf{1}_{A_i}(\omega) = 0$`, this also implies that `$F(\omega) = 0$`, that is, `$F$` is identically 0. Expanding the product, we have:
 
 <div> $$
-0 = \prod_{i \in [n]} (\unicode{x1D7D9}_A - \unicode{x1D7D9}_{A_i}) = \unicode{x1D7D9}_A + \sum_{\emptyset \neq I \in [n]}(-1)^{|I|} \prod_{i \in I}\unicode{x1D7D9}_{A_i} .
+0 = \prod_{i \in [n]} (\mathbf{1}_A - \mathbf{1}_{A_i}) = \mathbf{1}_A + \sum_{\emptyset \neq I \in [n]}(-1)^{|I|} \prod_{i \in I}\mathbf{1}_{A_i} .
 $$ </div>
 
 Therefore
 
 <div> $$
-\unicode{x1D7D9}_A = \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \unicode{x1D7D9}_{\cap_{i \in I}A_i} .
+\mathbf{1}_A = \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \mathbf{1}_{\cap_{i \in I}A_i} .
 $$ </div>
 
 Integrating both sides, we have
 
 <div> $$ \begin{align}
-\int \unicode{x1D7D9}_A d\mu &=  \int \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \unicode{x1D7D9}_{\cap_{i \in I}A_i} d\mu \\
-&= \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \int \unicode{x1D7D9}_{\cap_{i \in I}A_i} d\mu
+\int \mathbf{1}_A d\mu &=  \int \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \mathbf{1}_{\cap_{i \in I}A_i} d\mu \\
+&= \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \int \mathbf{1}_{\cap_{i \in I}A_i} d\mu
 \end{align}$$ </div>
 <div> $$ \begin{align}
 \mu\left( \bigcup_{i \in [n]}A_i \right) &= \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \mu \left( \bigcap_{i \in I}A_i \right).
@@ -112,22 +112,22 @@ Let again `$(\Omega, \mathcal{A}, \mu)$` be a measure space and `$A_1, \dots, A_
 Now, note that
 
 <div> $$
-\sum_{I \in {[n] \choose k}} \unicode{x1D7D9}_{\cap_{i \in I} A_i}(\omega) = { |L(\omega)| \choose k}.
+\sum_{I \in {[n] \choose k}} \mathbf{1}_{\cap_{i \in I} A_i}(\omega) = { |L(\omega)| \choose k}.
 $$ </div>
 
 Now, consider the following function `$F_N$`.
 
 <div> $$ \begin{align}
-F_N(\omega) &=  \unicode{x1D7D9}_{A}(\omega) +
-\sum_{k = 1}^{N}(-1)^k\sum_{I \in {[n] \choose k}} \unicode{x1D7D9}_{\cap_{i \in I} A_i}(\omega)\\
-&= \unicode{x1D7D9}_{A}(\omega) +
+F_N(\omega) &=  \mathbf{1}_{A}(\omega) +
+\sum_{k = 1}^{N}(-1)^k\sum_{I \in {[n] \choose k}} \mathbf{1}_{\cap_{i \in I} A_i}(\omega)\\
+&= \mathbf{1}_{A}(\omega) +
 \sum_{k=1}^{N}(-1)^j{ |L(\omega)| \choose k}.
 \end{align} $$ </div>
 
 Integrating `$F_N$` over `$A$`, we obtain:
 
 <div> $$ \begin{align}
-\int_A F_N d\mu &=  \int_A \unicode{x1D7D9}_{A} d\mu +
+\int_A F_N d\mu &=  \int_A \mathbf{1}_{A} d\mu +
 \int_A \sum_{k=1}^{N}(-1)^k{ |L(\omega)| \choose k} d\mu \\
 &=  \int_A \sum_{k=0}^{N} (-1)^k{ |L(\omega)| \choose k} d\mu.
 \end{align} $$ </div>
