@@ -12,7 +12,7 @@ tags = [
 The __principle of inclusion-exclusion__ is a fundamental tool in combinatorics. It relates the cardinality of a union of sets to the cardinality of the intersection of these sets. We will use the following notation: denote `$[n] = \{1, \dots, n\}$` and for a set `$A$`, define `${ A \choose k} = \{ S \subseteq A : |S| = k \}$`. The inclusion-exclusion principle can be stated in a compact way as follows, for finite sets `$A_1, \dotsc, A_n$`:
 
 <div> $$ \begin{align}
-\left | \bigcup_{i\in [n]} A_i  \right| &= \sum_{\emptyset \neq I \subset [n]} (-1)^{|I|+1} \left | \bigcap_{i \in I} A_i\right | \\
+\left | \bigcup_{i\in [n]} A_i  \right| &= \sum_{\emptyset \neq I \subseteq [n]} (-1)^{|I|+1} \left | \bigcap_{i \in I} A_i\right | \\
 &= \sum_{k=1}^n (-1)^{k+1} \sum_{I \in {[n] \choose k}} \left | \bigcap_{i \in I} A_i\right | .
 \end{align}$$</div>
 
@@ -48,23 +48,23 @@ Note that if `$\omega \not\in A$`, then `$\mathbf{1}_A(\omega) = 0$` and `$\math
 On the other hand, if `$\omega \in A$`, then there is `$i$` so that `$\omega \in A_i$`, so `$\mathbf{1}_A(\omega) - \mathbf{1}_{A_i}(\omega) = 0$`, this also implies that `$F(\omega) = 0$`, that is, `$F$` is identically 0. Expanding the product, we have:
 
 <div> $$
-0 = \prod_{i \in [n]} (\mathbf{1}_A - \mathbf{1}_{A_i}) = \mathbf{1}_A + \sum_{\emptyset \neq I \in [n]}(-1)^{|I|} \prod_{i \in I}\mathbf{1}_{A_i} .
+0 = \prod_{i \in [n]} (\mathbf{1}_A - \mathbf{1}_{A_i}) = \mathbf{1}_A + \sum_{\emptyset \neq I \subseteq [n]}(-1)^{|I|} \prod_{i \in I}\mathbf{1}_{A_i} .
 $$ </div>
 
 Therefore
 
 <div> $$
-\mathbf{1}_A = \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \mathbf{1}_{\cap_{i \in I}A_i} .
+\mathbf{1}_A = \sum_{\emptyset \neq I \subseteq [n]}(-1)^{|I|+1} \mathbf{1}_{\cap_{i \in I}A_i} .
 $$ </div>
 
 Integrating both sides, we have
 
 <div> $$ \begin{align}
-\int \mathbf{1}_A d\mu &=  \int \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \mathbf{1}_{\cap_{i \in I}A_i} d\mu \\
-&= \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \int \mathbf{1}_{\cap_{i \in I}A_i} d\mu
+\int \mathbf{1}_A d\mu &=  \int \sum_{\emptyset \neq I \subseteq [n]}(-1)^{|I|+1} \mathbf{1}_{\cap_{i \in I}A_i} d\mu \\
+&= \sum_{\emptyset \neq I \subseteq [n]}(-1)^{|I|+1} \int \mathbf{1}_{\cap_{i \in I}A_i} d\mu
 \end{align}$$ </div>
 <div> $$ \begin{align}
-\mu\left( \bigcup_{i \in [n]}A_i \right) &= \sum_{\emptyset \neq I \in [n]}(-1)^{|I|+1} \mu \left( \bigcap_{i \in I}A_i \right).
+\mu\left( \bigcup_{i \in [n]}A_i \right) &= \sum_{\emptyset \neq I \subseteq [n]}(-1)^{|I|+1} \mu \left( \bigcap_{i \in I}A_i \right).
 \end{align}$$ </div>
 
 This is the principle of inclusion exclusion for measures. Note that we had to assume that `$\mu(A_i) < \infty$`, for all `$i \in [n]$`. If we have the counting measure, this corresponds exactly to the first identity on this note. We will prove the Bonferroni's inequalities using a similar approach, but we need a little detour.
